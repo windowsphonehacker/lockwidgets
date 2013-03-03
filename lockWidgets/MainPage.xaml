@@ -1,0 +1,55 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="lockWidgets.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent" >
+        
+        <Grid x:Name="ContentPanel" Margin="0,0,0,0">
+            <TextBlock Height="43" HorizontalAlignment="Left" Margin="6,6,0,0" Name="textBlock1" Text="lockWidgets" VerticalAlignment="Top" FontSize="26" Grid.ColumnSpan="2" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="6,666,0,0" Name="textBlock2" Text="by jaxbot of windowsphonehacker.com" VerticalAlignment="Top" Tap="textBlock2_Tap" FontSize="16" />
+            <Grid Name="controls" >
+            <CheckBox Content="Show weather on the lock screen" Height="72" HorizontalAlignment="Left" Margin="22,55,0,0" Name="chkShowWeather" VerticalAlignment="Top" Checked="settingChanged" Unchecked="settingChanged"/>
+            <CheckBox Content="Show SMS on the lock screen" Height="72" HorizontalAlignment="Left" Margin="22,257,0,0" Name="chkShowSMS" VerticalAlignment="Top" Checked="settingChanged" Unchecked="settingChanged"/>
+            <CheckBox Content="Show large battery on the lock screen" Height="72" HorizontalAlignment="Left" Margin="22,317,0,0" Name="chkShowBattery" VerticalAlignment="Top" Checked="settingChanged" Unchecked="settingChanged" />
+            <RadioButton Content="Use Bing wallpaper" Height="72" HorizontalAlignment="Left" Margin="22,460,0,0" Name="radioBing" VerticalAlignment="Top" FontStretch="Condensed" Checked="settingChanged" />
+            <RadioButton Content="Use my own" FontStretch="Condensed" Height="72" HorizontalAlignment="Left" Margin="22,511,0,0" Name="radioOwn" VerticalAlignment="Top" Unchecked="radioOwn_Unchecked" Checked="radioOwn_Checked" />
+            <Button Content="choose" Visibility="Visible" Height="72" HorizontalAlignment="Left" Margin="307,0,0,113" Name="btnChoose" VerticalAlignment="Bottom" Width="160" Click="btnChoose_Click" />
+            <Button Content="save" Height="69" HorizontalAlignment="Left" Margin="22,0,0,36" Name="button1" VerticalAlignment="Bottom" Width="445" Click="button1_Click" />
+                <TextBlock HorizontalAlignment="Left" Margin="69,139,0,527" Name="textBlock6" Text="City or ZIP:" />
+                <TextBox Height="65" HorizontalAlignment="Left" Margin="171,119,0,0" Name="txtCity" Text="" VerticalAlignment="Top" Width="248" FontSize="18" LostFocus="txtCity_LostFocus" />
+                <CheckBox Content="Show RAM info on the lock screen" Height="72" HorizontalAlignment="Left" Margin="22,378,0,0" Name="chkRAM" VerticalAlignment="Top" />
+                <CheckBox Content="Enable weather effects" Height="72" HorizontalAlignment="Left" Margin="69,164,0,0" Name="chkWeatherEffects" VerticalAlignment="Top" FontSize="19" />
+                <CheckBox Content="Celsius" FontSize="19" Height="72" HorizontalAlignment="Left" Margin="69,206,0,0" Name="chkCelsius" VerticalAlignment="Top" Checked="chkCelsius_Checked" />
+            </Grid>
+            <Grid Name="suspended" Visibility="Collapsed">
+                <TextBlock Height="43" HorizontalAlignment="Left" Margin="182,243,0,0" Name="textBlock3" Text="running..." VerticalAlignment="Top" Width="143" FontSize="28" />
+                <TextBlock Height="30" HorizontalAlignment="Left" Margin="80,292,0,0" Name="textBlock4" Text="To change settings, restart the app." VerticalAlignment="Top" />
+                
+                <Button Content="refire agent" Height="72" HorizontalAlignment="Left" Margin="284,585,0,0" Name="button2" VerticalAlignment="Top" Width="190" Click="button2_Click" />
+            </Grid>
+        </Grid>
+    </Grid>
+ 
+    <!--Sample code showing usage of ApplicationBar-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="about" Click="ApplicationBarMenuItem_Click" />
+                
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
